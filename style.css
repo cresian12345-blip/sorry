@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #a97c8c;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: #fce4ec;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(150, 100, 100, 0.2);
+    max-width: 700px;
+    width: 100%;
+    padding: 50px;
+    animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page {
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+h1 {
+    color: #2d2d2d;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #2d2d2d;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+p, .message-text {
+    color: #333;
+    line-height: 1.8;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.heart {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    object-fit: contain;
+    object-position: center;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 1em;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-start {
+    background: linear-gradient(135deg, #b5d4c0 0%, #c5ddd0 100%);
+    color: #5a5a5a;
+    padding: 15px 40px;
+    font-size: 1.1em;
+}
+
+.btn-start:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(181, 212, 192, 0.4);
+}
+
+.btn-reveal {
+    background: #e8d4d4;
+    color: #5a5a5a;
+    border: 2px solid #d4b5b5;
+}
+
+.btn-reveal:hover {
+    background: #d4b5b5;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(181, 150, 150, 0.3);
+}
+
+.btn-next {
+    background: linear-gradient(135deg, #b5d4c0 0%, #c5ddd0 100%);
+    color: #5a5a5a;
+}
+
+.btn-next:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(181, 212, 192, 0.3);
+}
+
+.revealed-box {
+    background: linear-gradient(135deg, #f0d0d0 0%, #e8d4d4 100%);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 20px 0;
+    border-left: 5px solid #d4b5b5;
+    display: none;
+}
+
+.revealed-box.show {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.commitment-list {
+    text-align: left;
+    list-style: none;
+    margin: 20px 0;
+}
+
+.commitment-list li {
+    padding: 15px;
+    margin: 10px 0;
+    background: #f0d0d0;
+    border-radius: 10px;
+    border-left: 4px solid #d4b5b5;
+    color: #333;
+}
+
+.commitment-list li:before {
+    content: "✓ ";
+    color: #b5b5b5;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.progress {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.progress-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d0d0d0;
+    transition: all 0.3s ease;
+}
+
+.progress-dot.active {
+    background: #a9a9a9;
+    transform: scale(1.3);
+}
+
+.floral {
+    font-size: 2em;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.flower-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    min-height: 300px;
+}
+
+.flower {
+    filter: drop-shadow(0 0 20px rgba(0, 188, 212, 0.5));
+}
+
+.bloom {
+    animation: bloomEffect 2s ease-in-out infinite;
+}
+
+@keyframes bloomEffect {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 0.3;
+        transform: scale(0.5);
+    }
+}

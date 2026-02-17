@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry, Brad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- PAGE 1: WELCOME -->
+        <div class="page active" data-page="0">
+            <img src="you-are-a-pig-hmmm.gif" alt="Sorry" class="heart">
+            <h2>I Need To Tell You Something</h2>
+            <p>Brad, I know this won't change anything sa ako gibuhat pero I hope this will ease your heart.</p>
+            <div class="btn-group">
+                <button class="btn-start" onclick="playMusicAndProceed()">Proceed</button>
+            </div>
+        </div>
+
+        <!-- PAGE 2: ANIMATED FLOWER -->
+        <div class="page" data-page="1">
+            <div class="flower-container">
+                <svg class="flower" viewBox="0 0 200 300" width="200" height="300">
+                    <!-- Grass -->
+                    <line x1="30" y1="280" x2="60" y2="250" stroke="#2ecc71" stroke-width="3"/>
+                    <line x1="50" y1="290" x2="70" y2="260" stroke="#2ecc71" stroke-width="3"/>
+                    <line x1="140" y1="280" x2="170" y2="250" stroke="#2ecc71" stroke-width="3"/>
+                    <line x1="160" y1="290" x2="180" y2="260" stroke="#2ecc71" stroke-width="3"/>
+                    
+                    <!-- Main stem -->
+                    <line x1="100" y1="280" x2="100" y2="120" stroke="#1e7e34" stroke-width="4"/>
+                    
+                    <!-- Leaves -->
+                    <path d="M 100 200 Q 80 190 75 180" stroke="#2ecc71" stroke-width="3" fill="none"/>
+                    <path d="M 100 160 Q 120 150 125 140" stroke="#2ecc71" stroke-width="3" fill="none"/>
+                    
+                    <!-- Flowers -->
+                    <g class="bloom bloom-1">
+                        <circle cx="100" cy="100" r="8" fill="#fff700"/>
+                        <circle cx="85" cy="90" r="12" fill="#00bcd4" opacity="0.8"/>
+                        <circle cx="100" cy="75" r="12" fill="#00bcd4" opacity="0.8"/>
+                        <circle cx="115" cy="90" r="12" fill="#00bcd4" opacity="0.8"/>
+                        <circle cx="100" cy="105" r="12" fill="#00bcd4" opacity="0.8"/>
+                    </g>
+                    
+                    <g class="bloom bloom-2" style="animation-delay: 0.3s">
+                        <circle cx="70" cy="150" r="6" fill="#fff700"/>
+                        <circle cx="60" cy="142" r="10" fill="#00bcd4" opacity="0.8"/>
+                        <circle cx="70" cy="132" r="10" fill="#00bcd4" opacity="0.8"/>
+                        <circle cx="80" cy="142" r="10" fill="#00bcd4" opacity="0.8"/>
+                        <circle cx="70" cy="152" r="10" fill="#00bcd4" opacity="0.8"/>
+                    </g>
+                    
+                    <g class="bloom bloom-3" style="animation-delay: 0.6s">
+                        <circle cx="130" cy="140" r="6" fill="#fff700"/>
+                        <circle cx="120" cy="132" r="10" fill="#00bcd4" opacity="0.8"/>
+                        <circle cx="130" cy="122" r="10" fill="#00bcd4" opacity="0.8"/>
+                        <circle cx="140" cy="132" r="10" fill="#00bcd4" opacity="0.8"/>
+                        <circle cx="130" cy="142" r="10" fill="#00bcd4" opacity="0.8"/>
+                    </g>
+                </svg>
+            </div>
+            
+            <div class="btn-group">
+                <button class="btn-next" onclick="prevPage()">← Back</button>
+                <button class="btn-next" onclick="window.location.href='flower/index.html'">Continue →</button>
+            </div>
+        </div>
+
+        <!-- PAGE 3: MY COMMITMENT -->
+        <div class="page" data-page="2">
+            <h2>I'm Committed To Doing Better</h2>
+            <p>I want you to know that this isn't just words. Here's what I promise:</p>
+            
+            <ul class="commitment-list">
+                <li>I'm trying to learn from this and be better for you</li>
+                <li>I won't keep repeating the same mistakes</li>
+                <li>I will never intentionally hurt you again</li>
+                <li>I appreciate you more than you know</li>
+                <li>I will work on my overthinking and fears</li>
+                <li>You deserve my best effort, and I'm committed to giving it</li>
+            </ul>
+
+            <div class="floral">💙 🌸 💙</div>
+
+            <div class="btn-group">
+                <button class="btn-next" onclick="prevPage()">← Back</button>
+                <button class="btn-next" onclick="nextPage()">Next →</button>
+            </div>
+        </div>
+
+        <!-- PAGE 4: FINAL MESSAGE -->
+        <div class="page" data-page="3">
+            <h2>Thank You For Everything</h2>
+            
+            <p>Thank you for being patient with me.</p>
+            <p>Thank you for understanding me even when I'm hard to understand.</p>
+            <p>Thank you for staying even when I make mistakes.</p>
+
+            <p style="font-size: 1.3em; font-weight: bold; color: #333; margin: 30px 0;">I really am sorry, Brad.</p>
+            <p>I hope you can forgive me. I hope we can move forward from this, and I promise I'll do my best to make it up to you.</p>
+            <p style="font-style: italic;">I may not always know the perfect words, but I hope you can feel that I'm sincere. I care about you, and I don't want anything to ruin what we have.</p>
+
+            <div class="signature">With All My Heart</div>
+
+            <div class="btn-group">
+                <button class="btn-next" onclick="prevPage()">← Back</button>
+                <button class="btn-next" onclick="restart()">Start Over</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 0;
+        const totalPages = 4;
+
+        function playMusicAndProceed() {
+            window.location.href = 'flower/index.html';
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages - 1) {
+                currentPage++;
+                updatePage();
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 0) {
+                currentPage--;
+                updatePage();
+            }
+        }
+
+        function restart() {
+            currentPage = 0;
+            updatePage();
+        }
+
+        function updatePage() {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show current page
+            document.querySelector(`[data-page="${currentPage}"]`).classList.add('active');
+
+            // Update progress dots
+            document.querySelectorAll('.progress-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index <= currentPage);
+            });
+
+            // Close all revealed boxes when changing pages
+            document.querySelectorAll('.revealed-box').forEach(box => {
+                box.classList.remove('show');
+            });
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function toggleReveal(id) {
+            const box = document.getElementById(id);
+            box.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
